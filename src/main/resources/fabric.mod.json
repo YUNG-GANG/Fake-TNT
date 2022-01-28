@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "faketnt",
+  "version": "${version}",
+  "name": "Fake TNT",
+  "description": "Adds fake, harmless TNT for pulling sick pranks on your fellow gamers",
+  "authors": [
+    "YUNGNICKYOUNG"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/fake-tnt-fabric",
+    "sources": "https://github.com/yungnickyoung/Fake-TNT",
+    "issues": "https://github.com/yungnickyoung/Fake-TNT/issues",
+    "discord": "discord.gg/rns3beq"
+  },
+  "license": "LGPLv3",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.yungnickyoung.minecraft.faketnt.FakeTnt"
+    ],
+    "client": [
+      "com.yungnickyoung.minecraft.faketnt.client.FakeTntClient"
+    ]
+  },
+  "mixins": [
+    "faketnt.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.12.0",
+    "fabric": ">=0.43.1",
+    "minecraft": "1.18.x",
+    "java": ">=17"
+  }
+}

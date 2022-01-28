@@ -1,4 +1,6 @@
 {
   "block.faketnt.fake_tnt": "Fake TNT",
-  "subtitles.faketnt.surprise": "Surprise!"
+  "subtitles.faketnt.surprise": "Surprise!",
+  "advancements.story.craft_fake_tnt.title": "Explosive Surprise",
+  "advancements.story.craft_fake_tnt.description": "What's in the box?"
 }

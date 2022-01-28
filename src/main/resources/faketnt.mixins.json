@@ -3,9 +3,12 @@
   "minVersion": "0.8",
   "package": "com.yungnickyoung.minecraft.faketnt.mixin",
   "compatibilityLevel": "JAVA_17",
+  "refmap": "faketnt.refmap.json",
   "mixins": [
   ],
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "client": [
+  ]
 }

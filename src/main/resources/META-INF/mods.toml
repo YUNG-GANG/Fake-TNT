@@ -1,0 +1,33 @@
+modLoader="javafml" #mandatory
+loaderVersion="[39,)"
+license="LGPLv3"
+issueTrackerURL="https://github.com/yungnickyoung/Fake-TNT"
+
+[[mods]]
+    modId="faketnt"
+    version="${file.jarVersion}"
+	displayName="Fake TNT"
+    credits="SHOUTOUTS TO CASEY U A REAL ONE"
+    authors="YUNGNICKYOUNG"
+    description="Adds fake, harmless TNT for pulling sick pranks on your fellow gamers"
+    logoFile="logo.png"
+    displayURL="https://www.curseforge.com/minecraft/mc-mods/fake-tnt"
+
+[[dependencies.faketnt]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.18.1,1.19)"
+
+[[dependencies.faketnt]]
+    modId="forge"
+    mandatory=true
+    versionRange="[39.0.0,)"
+    ordering="NONE"
+    side="SERVER"
+
+[[dependencies.faketnt]]
+    modId="yungsapi"
+    versionRange="[1.18.1-Forge-23,)"
+    mandatory=true
+    ordering="NONE"
+    side="BOTH"

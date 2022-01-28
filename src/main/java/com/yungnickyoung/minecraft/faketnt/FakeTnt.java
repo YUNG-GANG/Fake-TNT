@@ -1,22 +1,24 @@
 package com.yungnickyoung.minecraft.faketnt;
 
-import com.yungnickyoung.minecraft.faketnt.init.FTModBlocks;
-import com.yungnickyoung.minecraft.faketnt.init.FTModEntities;
-import com.yungnickyoung.minecraft.faketnt.init.FTModParticles;
-import com.yungnickyoung.minecraft.faketnt.init.FTModSounds;
-import net.fabricmc.api.ModInitializer;
+import com.yungnickyoung.minecraft.faketnt.client.FakeTntClient;
+import com.yungnickyoung.minecraft.faketnt.init.*;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class FakeTnt implements ModInitializer {
+@Mod(FakeTnt.MOD_ID)
+public class FakeTnt {
 	public static final String MOD_ID = "faketnt";
 	public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
 
-	@Override
-	public void onInitialize() {
+	public FakeTnt() {
 		FTModBlocks.init();
+		FTModItems.init();
 		FTModEntities.init();
 		FTModParticles.init();
 		FTModSounds.init();
+		DistExecutor.safeRunWhenOn(Dist.CLIENT, () -> FakeTntClient::init);
 	}
 }

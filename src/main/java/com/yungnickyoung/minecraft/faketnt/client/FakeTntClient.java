@@ -2,18 +2,26 @@ package com.yungnickyoung.minecraft.faketnt.client;
 
 import com.yungnickyoung.minecraft.faketnt.init.FTModEntities;
 import com.yungnickyoung.minecraft.faketnt.init.FTModParticles;
-import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.minecraft.client.Minecraft;
+import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.client.event.ParticleFactoryRegisterEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-public class FakeTntClient implements ClientModInitializer {
-    @Override
-    public void onInitializeClient() {
-        EntityRendererRegistry.register(FTModEntities.FAKE_TNT, FakeTntRenderer::new);
-        ParticleFactoryRegistry.getInstance().register(FTModParticles.BLUE_CONFETTI, ConfettiParticle.Provider::new);
-        ParticleFactoryRegistry.getInstance().register(FTModParticles.GREEN_CONFETTI, ConfettiParticle.Provider::new);
-        ParticleFactoryRegistry.getInstance().register(FTModParticles.PINK_CONFETTI, ConfettiParticle.Provider::new);
-        ParticleFactoryRegistry.getInstance().register(FTModParticles.PURPLE_CONFETTI, ConfettiParticle.Provider::new);
-        ParticleFactoryRegistry.getInstance().register(FTModParticles.YELLOW_CONFETTI, ConfettiParticle.Provider::new);
+public class FakeTntClient {
+    public static void init() {
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(FakeTntClient::registerEntityRenderers);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(FakeTntClient::registerParticles);
+    }
+
+    private static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers.RegisterRenderers event) {
+        event.registerEntityRenderer(FTModEntities.FAKE_TNT, FakeTntRenderer::new);
+    }
+
+    private static void registerParticles(ParticleFactoryRegisterEvent event) {
+        Minecraft.getInstance().particleEngine.register(FTModParticles.BLUE_CONFETTI, ConfettiParticle.Provider::new);
+        Minecraft.getInstance().particleEngine.register(FTModParticles.GREEN_CONFETTI, ConfettiParticle.Provider::new);
+        Minecraft.getInstance().particleEngine.register(FTModParticles.PINK_CONFETTI, ConfettiParticle.Provider::new);
+        Minecraft.getInstance().particleEngine.register(FTModParticles.PURPLE_CONFETTI, ConfettiParticle.Provider::new);
+        Minecraft.getInstance().particleEngine.register(FTModParticles.YELLOW_CONFETTI, ConfettiParticle.Provider::new);
     }
 }

@@ -1,6 +1,5 @@
 package com.yungnickyoung.minecraft.faketnt.block;
 
-
 import com.yungnickyoung.minecraft.faketnt.entity.PrimedFakeTnt;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;

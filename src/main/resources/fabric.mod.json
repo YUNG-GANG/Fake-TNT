@@ -13,6 +13,7 @@
     "issues": "https://github.com/yungnickyoung/Fake-TNT/issues",
     "discord": "discord.gg/rns3beq"
   },
+  "icon": "logo.png",
   "license": "LGPLv3",
   "environment": "*",
   "entrypoints": {

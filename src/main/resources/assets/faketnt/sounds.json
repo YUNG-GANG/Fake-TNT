@@ -2,7 +2,12 @@
   "surprise": {
     "subtitle": "subtitles.faketnt.surprise",
     "sounds": [
-      "faketnt:surprise"
+      {
+        "name": "faketnt:surprise",
+        "attenuation_distance": 16,
+        "volume": 0.8,
+        "pitch": 1.0
+      }
     ]
   }
 }

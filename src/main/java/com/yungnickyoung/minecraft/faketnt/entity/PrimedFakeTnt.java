@@ -11,6 +11,7 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
@@ -78,23 +79,21 @@ public class PrimedFakeTnt extends Entity {
     }
 
     private void explode() {
-        if (this.level.isClientSide) {
-            this.level.playLocalSound(this.getX(), this.getY(0.0625), this.getZ(), FTModSounds.SURPRISE_SOUND, SoundSource.BLOCKS, 0.5f, 1.0f, false);
-            for (int i = 0; i < random.nextInt(5) + 5; i++) {
-                this.level.addParticle(FTModParticles.BLUE_CONFETTI, this.getX(), this.getY() + 0.5, this.getZ(), 0, 0, 0);
-            }
-            for (int i = 0; i < random.nextInt(5) + 5; i++) {
-                this.level.addParticle(FTModParticles.GREEN_CONFETTI, this.getX(), this.getY() + 0.5, this.getZ(), 0, 0, 0);
-            }
-            for (int i = 0; i < random.nextInt(5) + 5; i++) {
-                this.level.addParticle(FTModParticles.PINK_CONFETTI, this.getX(), this.getY() + 0.5, this.getZ(), 0, 0, 0);
-            }
-            for (int i = 0; i < random.nextInt(5) + 5; i++) {
-                this.level.addParticle(FTModParticles.PURPLE_CONFETTI, this.getX(), this.getY() + 0.5, this.getZ(), 0, 0, 0);
-            }
-            for (int i = 0; i < random.nextInt(5) + 5; i++) {
-                this.level.addParticle(FTModParticles.YELLOW_CONFETTI, this.getX(), this.getY() + 0.5, this.getZ(), 0, 0, 0);
-            }
+        this.level.playSound(null, this.getX(), this.getY(0.0625), this.getZ(), FTModSounds.SURPRISE_SOUND, SoundSource.BLOCKS, 0.5f, Mth.randomBetween(random, 0.9f, 1.1f));
+        for (int i = 0; i < random.nextInt(5) + 5; i++) {
+            this.level.addParticle(FTModParticles.BLUE_CONFETTI, this.getX(), this.getY() + 0.5, this.getZ(), 0, 0, 0);
+        }
+        for (int i = 0; i < random.nextInt(5) + 5; i++) {
+            this.level.addParticle(FTModParticles.GREEN_CONFETTI, this.getX(), this.getY() + 0.5, this.getZ(), 0, 0, 0);
+        }
+        for (int i = 0; i < random.nextInt(5) + 5; i++) {
+            this.level.addParticle(FTModParticles.PINK_CONFETTI, this.getX(), this.getY() + 0.5, this.getZ(), 0, 0, 0);
+        }
+        for (int i = 0; i < random.nextInt(5) + 5; i++) {
+            this.level.addParticle(FTModParticles.PURPLE_CONFETTI, this.getX(), this.getY() + 0.5, this.getZ(), 0, 0, 0);
+        }
+        for (int i = 0; i < random.nextInt(5) + 5; i++) {
+            this.level.addParticle(FTModParticles.YELLOW_CONFETTI, this.getX(), this.getY() + 0.5, this.getZ(), 0, 0, 0);
         }
     }
 
